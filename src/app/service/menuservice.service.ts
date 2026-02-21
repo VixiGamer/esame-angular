@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { pizza } from '../models/pizza_model';
 import { Observable } from 'rxjs';
 
-// Interfaccia interna per gestire la quantità nel carrello
 interface CartItem {
   id: number;
   pizza: pizza;
@@ -24,7 +23,7 @@ export class MenuService {
     );
   }
 
-  addPizzaToCart(p: pizza): void {
+  addPizzaToCart(p: pizza) {
     this.carrello.update(items => {
       const existing = items.find(i => i.id === p.id);
       if (existing) {

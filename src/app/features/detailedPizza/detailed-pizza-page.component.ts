@@ -16,22 +16,10 @@ import { pizza } from '../../models/pizza_model';
     <div class="container my-5" *ngIf="pizzaDetail() as p">
       <button routerLink="/menu" class="btn btn-outline-secondary mb-3">Back</button>
       <div class="text-center mb-5">
-        <h2 style="
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: #3A3535;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        ">
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); color: #3A3535; letter-spacing: 1px; text-transform: uppercase;">
           {{ p.name }}
         </h2>
-        <p style="
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: #6c757d;
-            margin-top: 0.5rem;
-        ">
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #6c757d; margin-top: 0.5rem;">
           Discover the authentic taste of Italy
         </p>
       </div>
@@ -39,29 +27,15 @@ import { pizza } from '../../models/pizza_model';
       <div class="row justify-content-center align-items-center g-5">
 
         <div class="col-md-5 text-center">
-          <img 
-            [src]="p.image" 
-            [alt]="p.name"
-            class="img-fluid rounded-4 shadow-sm"
-            style="max-height: 380px; object-fit: cover;"
-          >
+          <img [src]="p.image" [alt]="p.name" class="img-fluid rounded-4 shadow-sm" style="max-height: 380px; object-fit: cover;">
         </div>
 
         <div class="col-md-5">
-          <p style="
-              font-family: 'Playfair Display', serif;
-              font-size: 1.1rem;
-              color: #495057;
-              line-height: 1.6;
-          ">
+          <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #495057; line-height: 1.6;">
             {{ p.description || 'Una deliziosa pizza preparata con i migliori ingredienti della tradizione italiana.' }}
           </p>
 
-          <h3 style="
-              font-family: 'Playfair Display', serif;
-              color: #28a745;
-              margin-top: 1rem;
-          ">
+          <h3 style="font-family: 'Playfair Display', serif; color: #28a745; margin-top: 1rem;">
             €{{ p.price.toFixed(2) }}
           </h3>
 

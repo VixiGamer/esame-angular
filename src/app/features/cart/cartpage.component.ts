@@ -1,5 +1,5 @@
 import { Component, computed, ChangeDetectionStrategy } from '@angular/core';
-import { RouterLink } from '@angular/router'; // <--- IMPORTA QUESTO
+import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MenuService } from '../../service/menuservice.service';
 
@@ -11,22 +11,10 @@ import { MenuService } from '../../service/menuservice.service';
   template: `
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
     <div class="text-center my-5">
-      <h2 style="
-          font-family: 'Playfair Display', serif; 
-          font-weight: 700; 
-          font-size: clamp(2rem, 5vw, 3rem); 
-          color: #3A3535;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-      ">
+      <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); color: #3A3535; letter-spacing: 1px; text-transform: uppercase;">
         Your Cart
       </h2>
-      <p style="
-          font-family: 'Playfair Display', serif; 
-          font-size: 1.2rem; 
-          color: #495057;
-          margin-top: 0.5rem;
-      ">
+      <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #495057; margin-top: 0.5rem;">
         Review your selected pizzas and adjust quantities before checkout
       </p>
     </div>
@@ -40,21 +28,18 @@ import { MenuService } from '../../service/menuservice.service';
       </button>
     </div>
 
-    <!-- Cart Items -->
     <div class="row justify-content-center g-4 w-75 flex-column align-content-center mx-auto">
       <div class="col-md-6" *ngFor="let item of cartSignal()">
         <div class="card h-100 shadow-sm border-0 rounded-4 d-flex flex-row align-items-center p-3" style="background-color:#f8f9fa;">
           
-          <!-- Pizza Image -->
           <img [src]="item.pizza.image" alt="{{ item.pizza.name }}" class="rounded-4 me-3" style="height:120px; width:120px; object-fit:cover;">
           
-          <!-- Pizza Details -->
           <div class="flex-grow-1 text-start">
             <h5 style="font-family: 'Playfair Display', serif; color:#3A3535;">{{ item.pizza.name }}</h5>
             <p style="font-family: 'Playfair Display', serif; color:#495057; margin-bottom:0.25rem;">
               €{{ item.pizza.price.toFixed(2) }} x {{ item.quantity }}
             </p>            
-            <!-- Quantity Controls -->
+
             <div class="mt-2">
               <button class="btn btn-sm btn-outline-secondary me-2" (click)="decreaseQuantity(item)" style="font-family: 'Playfair Display'">-</button>
               <button class="btn btn-sm btn-outline-secondary me-2" (click)="increaseQuantity(item)" style="font-family: 'Playfair Display'"  >+</button>
@@ -69,7 +54,7 @@ import { MenuService } from '../../service/menuservice.service';
       <h4 style="font-family: 'Playfair Display', serif; color:#28a745;">
         Total: €{{ total().toFixed(2) }}
       </h4>
-      <button class="btn btn-primary mt-3" (click)="checkout()" routerLink="/menu" style="font-family: 'Playfair Display'">Checkout</button>
+      <button class="btn btn-outline-secondary mt-3" (click)="checkout()" routerLink="/menu" style="font-family: 'Playfair Display'">Checkout</button>
     </div>
   `,
   styles: ``

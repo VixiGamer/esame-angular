@@ -13,22 +13,10 @@ import { MenuService } from '../../service/menuservice.service';
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
     
     <div class="text-center my-5">
-      <h2 style="
-          font-family: 'Playfair Display', serif; 
-          font-weight: 700; 
-          font-size: clamp(2rem, 5vw, 3rem); 
-          color: #3A3535;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-      ">
+      <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); color: #3A3535; letter-spacing: 1px; text-transform: uppercase;">
         Our Menu
       </h2>
-      <p style="
-          font-family: 'Playfair Display', serif; 
-          font-size: 1.2rem; 
-          color: #495057;
-          margin-top: 0.5rem;
-      ">
+      <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #495057; margin-top: 0.5rem;">
         Discover our delicious pizzas, handcrafted with love and fresh ingredients
       </p>
     </div>
@@ -84,13 +72,11 @@ pizzas = signal<pizza[]>([]);
 
   loadPizzas() {
     this.menuService.getPizzas().subscribe((data: pizza[]) => {
-      // 5. Aggiorna il signal usando .set()
       this.pizzas.set(data);
     });
   }
 
   getQuantity(id: number) {
-    // Legge dal signal globale nel service
     const item = this.menuService.carrello().find(i => i.id === id);
     return item ? item.quantity : 0;
   }
