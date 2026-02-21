@@ -28,7 +28,7 @@ import { MenuService } from '../../service/menuservice.service';
       </button>
     </div>
 
-    <div class="row justify-content-center g-4 w-75 flex-column align-content-center mx-auto">
+    <div class="row justify-content-center g-4 w-50 flex-column align-content-center mx-auto">
       <div class="col-md-6" *ngFor="let item of cartSignal()">
         <div class="card h-100 shadow-sm border-0 rounded-4 d-flex flex-row align-items-center p-3" style="background-color:#f8f9fa;">
           
@@ -50,7 +50,7 @@ import { MenuService } from '../../service/menuservice.service';
       </div>
     </div>
 
-    <div class="text-center mt-4" *ngIf="cartSignal().length > 0">
+    <div class="text-center mt-4 mb-4" *ngIf="cartSignal().length > 0">
       <h4 style="font-family: 'Playfair Display', serif; color:#28a745;">
         Total: €{{ total().toFixed(2) }}
       </h4>
