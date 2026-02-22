@@ -14,7 +14,7 @@ import { pizza } from '../../models/pizza_model';
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
     <div class="container my-5" *ngIf="pizzaDetail() as p">
-      <button routerLink="/menu" class="btn btn-outline-secondary mb-3">Back</button>
+      <button routerLink="/menu" class="btn btn-outline-secondary mb-3" style="font-family: 'Playfair Display'">Back</button>
       <div class="text-center mb-5">
         <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); color: #3A3535; letter-spacing: 1px; text-transform: uppercase;">
           {{ p.name }}
@@ -50,7 +50,7 @@ import { pizza } from '../../models/pizza_model';
               +
             </button>
           </div>
-          <button class="btn btn-outline-danger mt-3" >Remove Pizza</button>
+          <button routerLink="/menu" class="btn btn-outline-danger mt-3" (click)="removePizza(p)" style="font-family: 'Playfair Display'">Remove Pizza</button>
         </div>
       </div>
     </div>
@@ -88,5 +88,10 @@ export class DetailedPizzaPageComponent implements OnInit {
 
   decrease(p: pizza) {
     this.menuService.removePizzaFromCart(p.id);
+  }
+
+  removePizza(p: pizza) {
+    this.menuService.removePizzaFromMenu(p.id);
+    this.pizzaDetail.set(null); // Rimuoviamo i dettagli dalla vista
   }
 }

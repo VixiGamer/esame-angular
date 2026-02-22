@@ -14,6 +14,7 @@ interface CartItem {
 })
 export class MenuService {
   carrello = signal<CartItem[]>([]);
+  menu = signal<pizza[]>([]);
 
   constructor(private http: HttpClient) {}
 
@@ -21,6 +22,13 @@ export class MenuService {
     return this.http.get<pizza[]>(
       'https://my-json-server.typicode.com/zoelounge/menupizza/cards'
     );
+  }
+
+  fetchPizzas() {
+    if (this.menu().length === 0) {
+      this.http.get<pizza[]>('https://my-json-server.typicode.com/zoelounge/menupizza/cards')
+        .subscribe(data => this.menu.set(data));
+    }
   }
 
   addPizzaToCart(p: pizza) {
@@ -47,6 +55,10 @@ export class MenuService {
       }
       return items.filter(item => item.id !== id);
     });
+  }
+
+  removePizzaFromMenu(id: number) {
+    this.menu.update(items => items.filter(item => item.id !== id));
   }
 
   clearCart() {

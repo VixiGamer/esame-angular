@@ -55,9 +55,12 @@ import { MenuService } from '../../service/menuservice.service';
         Total: €{{ total().toFixed(2) }}
       </h4>
       
-      <button type="button" class="btn btn-outline-secondary" (click)="checkout()" routerLink="/menu" data-bs-toggle="modal" style="font-family: 'Playfair Display'" data-bs-target="#staticBackdrop">
-        Checkout
-      </button>
+      <div>
+        <button type="button" class="btn btn-outline-secondary" (click)="checkout()" routerLink="/menu" data-bs-toggle="modal" style="font-family: 'Playfair Display'" data-bs-target="#staticBackdrop">
+          Checkout
+        </button>
+        <button class="btn btn-outline-danger ms-2" (click)="clearCart()" style="font-family: 'Playfair Display'">Clear Cart</button>
+      </div>
 
       
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -103,6 +106,10 @@ export class CartpageComponent {
   }
 
   checkout() {
+    this.menuService.clearCart();
+  }
+
+  clearCart() {
     this.menuService.clearCart();
   }
 }
