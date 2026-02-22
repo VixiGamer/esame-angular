@@ -21,7 +21,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           <a class="navbar-brand d-flex align-items-center fw-bold m-0"
              routerLink="/home"
              style="color:#3A3535; font-size: 1.4rem;">
-            <img src="../../../assets/images/pizza.png"
+            <img src="../../../assets/images/MyPizza_logo.jpg"
                  alt="Logo"
                  width="38"
                  height="38"

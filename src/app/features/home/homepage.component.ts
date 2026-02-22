@@ -66,8 +66,8 @@ import { Component } from '@angular/core';
           MyPizza was born from a love for authentic Italian pizza and a passion for sharing it with the community. What started as a small family-run pizzeria has grown into a local favorite, combining traditional recipes with fresh ingredients and creative flavors. Every pizza is handcrafted with care, and every visit is an opportunity to enjoy great food, warm hospitality, and a welcoming atmosphere.
         </p>
       </div>
-
     </div>
+    <h5 class="text-center mt-4 mb-5" style="font-family: 'Playfair Display', serif; color:#3A3535;">By Viggo Ponturo Nygaard</h5>
   `,
   styles: ``
 })
