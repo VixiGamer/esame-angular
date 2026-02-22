@@ -54,7 +54,28 @@ import { MenuService } from '../../service/menuservice.service';
       <h4 style="font-family: 'Playfair Display', serif; color:#28a745;">
         Total: €{{ total().toFixed(2) }}
       </h4>
-      <button class="btn btn-outline-secondary mt-3" (click)="checkout()" routerLink="/menu" style="font-family: 'Playfair Display'">Checkout</button>
+      
+      <button type="button" class="btn btn-outline-secondary" (click)="checkout()" routerLink="/menu" data-bs-toggle="modal" style="font-family: 'Playfair Display'" data-bs-target="#staticBackdrop">
+        Checkout
+      </button>
+
+      
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel" style="font-family: 'Playfair Display'">Thank you for your purchase!</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="font-family: 'Playfair Display'">
+              Your order has been placed successfully.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" style="font-family: 'Playfair Display'" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   `,
   styles: ``
@@ -62,12 +83,12 @@ import { MenuService } from '../../service/menuservice.service';
 
 export class CartpageComponent {
   cartSignal = this.menuService.carrello;
-  
-  total = computed(() => 
+
+  total = computed(() =>
     this.cartSignal().reduce((sum, i) => sum + i.pizza.price * i.quantity, 0)
   );
 
-  constructor(private menuService: MenuService) {}
+  constructor(private menuService: MenuService) { }
 
   increaseQuantity(item: any) {
     this.menuService.addPizzaToCart(item.pizza);
@@ -82,7 +103,6 @@ export class CartpageComponent {
   }
 
   checkout() {
-    alert('Thank you for your purchase!');
     this.menuService.clearCart();
   }
 }
