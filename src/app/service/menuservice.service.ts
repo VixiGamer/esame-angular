@@ -35,7 +35,7 @@ export class MenuService {
     });
   }
 
-  removePizzaFromCart(id: number): void {
+  removePizzaFromCart(id: number) {
     this.carrello.update(items => {
       const existing = items.find(i => i.id === id);
       if (!existing) return items;
@@ -49,7 +49,7 @@ export class MenuService {
     });
   }
 
-  clearCart(): void {
+  clearCart() {
     this.carrello.set([]);
   }
 }
